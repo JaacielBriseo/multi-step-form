@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { appSlice } from './app/appSlice';
+import { subscriptionSlice } from './app';
 // ...
 
 export const store = configureStore({
 	reducer: {
-        app: appSlice.reducer
+        subscription: subscriptionSlice.reducer
     },
 });
 

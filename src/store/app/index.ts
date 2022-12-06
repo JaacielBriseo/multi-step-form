@@ -1,1 +1,1 @@
-export * from './appSlice'
+export * from './subscriptionSlice'
