@@ -3,7 +3,7 @@ export interface SubscriptionState {
 	userInfo: {
 		name: string;
 		email: string;
-		phoneNumber: string;
+		phone: string;
 	} | null;
 	paymentType: 'monthly' | 'yearly' | null;
 	paymentMethod: 'card' | 'paypal' | 'other' | null;

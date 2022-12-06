@@ -19,7 +19,8 @@ module.exports = {
 				Ubuntu: ['Ubuntu', 'sans-serif'],
 			},
 			backgroundImage: {
-				deskSide:"url(assets/bg-sidebar-desktop.svg)"
+				deskSide:"url(assets/bg-sidebar-desktop.svg)",
+				mobSide:"url(assets/bg-sidebar-mobile.svg)",
 			}
 		},
 	},
