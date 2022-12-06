@@ -18,6 +18,9 @@ module.exports = {
 			fontFamily: {
 				Ubuntu: ['Ubuntu', 'sans-serif'],
 			},
+			backgroundImage: {
+				deskSide:"url(assets/bg-sidebar-desktop.svg)"
+			}
 		},
 	},
 	plugins: [],
