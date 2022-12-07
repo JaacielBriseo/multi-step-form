@@ -6,6 +6,6 @@ export interface SubscriptionState {
 		phone: string;
 	} | null;
 	paymentType: 'monthly' | 'yearly' | null;
-	paymentMethod: 'card' | 'paypal' | 'other' | null;
+	subscriptionPlan: 'arcade' | 'advanced' | 'pro' | null;
 	confirmed: boolean | null;
 }

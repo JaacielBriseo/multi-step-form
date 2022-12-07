@@ -1,11 +1,13 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-import { setUserInfo, useAppDispatch } from '../store';
+import { useNavigate } from 'react-router-dom';
+import { setStep, setUserInfo, useAppDispatch } from '../store';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 export const UserInfoForm = () => {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
+
+
 	return (
 		<Formik
 			initialValues={{
@@ -22,6 +24,8 @@ export const UserInfoForm = () => {
 			})}
 			onSubmit={(values) => {
 				dispatch(setUserInfo(values));
+				dispatch(setStep(2));
+				navigate('/select');
 			}}
 		>
 			{({ errors }) => (
@@ -36,7 +40,7 @@ export const UserInfoForm = () => {
 						<Field
 							name='name'
 							type='text'
-							className={`border-2 h-10 ${errors.name && 'border-StrawberryRed'} `}
+							className={`border-2 h-11 rounded-lg ${errors.name && 'border-StrawberryRed'} `}
 							placeholder='	e.g. Stephen King'
 						/>
 					</div>
@@ -49,7 +53,7 @@ export const UserInfoForm = () => {
 						<Field
 							name='email'
 							type='email'
-							className={`border-2 h-10 ${errors.email && 'border-StrawberryRed'} `}
+							className={`border-2 h-11 rounded-lg ${errors.email && 'border-StrawberryRed'} `}
 							placeholder='	e.g. stephenking@lorem.com'
 						/>
 					</div>
@@ -62,17 +66,13 @@ export const UserInfoForm = () => {
 						<Field
 							name='phone'
 							type='text'
-							className={`border-2 h-10 ${errors.phone && 'border-StrawberryRed'} `}
+							className={`border-2 h-11 rounded-lg ${errors.phone && 'border-StrawberryRed'} `}
 							placeholder='	e.g. +1 234 567 890'
 						/>
 					</div>
 
 					<div className='flex justify-end mt-20'>
-						<button
-							// onClick={() => navigate('/select')}
-							type='submit'
-							className='w-24 h-9 p-1 bg-MarineBlue text-White rounded-md '
-						>
+						<button type='submit' className='w-24 h-9 p-1 bg-MarineBlue text-White rounded-md '>
 							Next Step
 						</button>
 					</div>
