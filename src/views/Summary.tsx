@@ -9,9 +9,9 @@ export const Summary = () => {
 			</div>
 			<div className='mt-5 divide-y divide-gray-500'>
 				<h4>
-					{subscriptionPlan} ({paymentType})
+					{subscriptionPlan.plan}{subscriptionPlan.price} 
 				</h4>
-        {addons}
+				{/* {addons} */}
 			</div>
 		</div>
 	);

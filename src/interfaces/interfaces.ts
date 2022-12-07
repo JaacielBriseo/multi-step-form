@@ -6,6 +6,9 @@ export interface SubscriptionState {
 		phone: string;
 	} | null;
 	paymentType: string | null;
-	subscriptionPlan: string | null;
+	subscriptionPlan:{
+		plan:string;
+		price:string;
+	};
 	addons: string | string[];
 }

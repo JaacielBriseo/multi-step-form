@@ -4,8 +4,11 @@ import { SubscriptionState } from '../../interfaces';
 const initialState: SubscriptionState = {
 	step: 1,
 	userInfo: null,
-	paymentType: null,
-	subscriptionPlan: null,
+	paymentType: 'monthly',
+	subscriptionPlan:{
+		plan:'',
+		price: ''
+	},
 	addons: [],
 };
 
@@ -26,7 +29,7 @@ export const subscriptionSlice = createSlice({
 			state.subscriptionPlan = action.payload;
 		},
 		setAddon: (state, action: { payload: SubscriptionState['addons'] }) => {
-		state.addons = action.payload
+			state.addons = action.payload;
 		},
 	},
 });

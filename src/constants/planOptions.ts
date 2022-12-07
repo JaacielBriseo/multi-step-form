@@ -2,27 +2,35 @@ import { Advanced, Arcade, Pro } from '../assets';
 
 interface PlanOption {
 	plan: string;
-	monthly: string;
-	yearly: string;
+	price: {
+		monthly: number;
+		yearly: number;
+	};
 	icon: string;
 }
-export const options: PlanOption[] = [
-    {
-        plan: 'Arcade',
-        monthly: '9/mo',
-        yearly: '90/yr',
-        icon: Arcade,
-    },
-    {
-        plan: 'Advanced',
-        monthly: '12/mo',
-        yearly: '120/yr',
-        icon: Advanced,
-    },
-    {
-        plan: 'Pro',
-        monthly: '15/mo',
-        yearly: '150/yr',
-        icon: Pro,
-    },
+export const planOptions: PlanOption[] = [
+	{
+		plan: 'Arcade',
+		price: {
+			monthly: 9,
+			yearly: 90,
+		},
+		icon: Arcade,
+	},
+	{
+		plan: 'Advanced',
+		price: {
+			monthly: 12,
+			yearly: 120,
+		},
+		icon: Advanced,
+	},
+	{
+		plan: 'Pro',
+		price: {
+			monthly: 15,
+			yearly: 150,
+		},
+		icon: Pro,
+	},
 ];
