@@ -9,7 +9,7 @@ export const SelectYourPlan = () => {
 				<p className='text-CoolGray'>You have the option of monthly or yearly billing.</p>
 			</div>
 			<div className='flex flex-col justify-center items-center space-y-8'>
-				{options.map((option, index) => {
+				{options.map((option, index:number) => {
 					return (
 						<button
 							key={option.plan}
