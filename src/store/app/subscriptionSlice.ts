@@ -6,7 +6,7 @@ const initialState: SubscriptionState = {
 	userInfo: null,
 	paymentType: null,
 	subscriptionPlan: null,
-	confirmed: null,
+	addons: [],
 };
 
 export const subscriptionSlice = createSlice({
@@ -25,12 +25,12 @@ export const subscriptionSlice = createSlice({
 		setSubscriptionPlan: (state, action: { payload: SubscriptionState['subscriptionPlan'] }) => {
 			state.subscriptionPlan = action.payload;
 		},
-		setConfirmed: (state, action: { payload: SubscriptionState['confirmed'] }) => {
-			state.confirmed = action.payload;
+		setAddon: (state, action: { payload: SubscriptionState['addons'] }) => {
+		state.addons = action.payload
 		},
 	},
 });
 
-export const { setStep, setUserInfo, setPaymentType, setSubscriptionPlan, setConfirmed } = subscriptionSlice.actions;
+export const { setStep, setUserInfo, setPaymentType, setSubscriptionPlan, setAddon } = subscriptionSlice.actions;
 
 export default subscriptionSlice.reducer;

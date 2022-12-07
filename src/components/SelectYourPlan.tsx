@@ -1,37 +1,7 @@
-import { useAppSelector } from '../store/hookTypes';
-import { Advanced, Arcade, Pro } from '../assets';
-import { useState } from 'react';
-interface PlanOption {
-	plan: string;
-	monthly: string;
-	yearly: string;
-	icon: string;
-}
+import { useSelectPlan } from '../hooks/useSelectPlan';
+import { setSubscriptionPlan } from '../store';
 export const SelectYourPlan = () => {
-	const { paymentType } = useAppSelector((state) => state.subscription);
-	const [isSelected, setIsSelected] = useState<number | null>(null);
-
-	let activeStyle = 'bg-gray-50 border-MarineBlue';
-	const options: PlanOption[] = [
-		{
-			plan: 'Arcade',
-			monthly: '9/mo',
-			yearly: '90/yr',
-			icon: Arcade,
-		},
-		{
-			plan: 'Advanced',
-			monthly: '12/mo',
-			yearly: '120/yr',
-			icon: Advanced,
-		},
-		{
-			plan: 'Pro',
-			monthly: '15/mo',
-			yearly: '150/yr',
-			icon: Pro,
-		},
-	];
+	const { activeStyle, dispatch, isSelected, options, paymentType, setIsSelected } = useSelectPlan();
 	return (
 		<div className='text-MarineBlue'>
 			<div className='mb-5 space-y-3'>
@@ -43,16 +13,19 @@ export const SelectYourPlan = () => {
 					return (
 						<button
 							key={option.plan}
-							name={option.plan}
-							onClick={() => setIsSelected(index)}
+							onClick={() => {
+								dispatch(setSubscriptionPlan(option.plan));
+								setIsSelected(index);
+							}}
 							className={`flex w-full h-[4.5rem] items-center rounded-md space-x-3 border px-2 ${
 								isSelected === index && activeStyle
 							}`}
 						>
 							<img src={option.icon} alt='icon' />
-							<div className='text-start'>
+							<div className='text-start flex flex-col'>
 								<h2 className='font-semibold'>{option.plan}</h2>
 								<small className='text-CoolGray'>{paymentType === 'monthly' ? option.monthly : option.yearly}</small>
+								<small>{paymentType === 'yearly' && '2 months free'}</small>
 							</div>
 						</button>
 					);
