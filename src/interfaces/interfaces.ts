@@ -10,5 +10,10 @@ export interface SubscriptionState {
 		plan: string;
 		price: number;
 	};
-	addons: string | string[];
+	addons: Addon[]
+}
+
+export interface Addon {
+	addon: string | null;
+	price: number | null;
 }

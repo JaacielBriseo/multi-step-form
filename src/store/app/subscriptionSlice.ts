@@ -9,7 +9,10 @@ const initialState: SubscriptionState = {
 		plan: '',
 		price: 0,
 	},
-	addons: [],
+	addons: [{
+		addon: '',
+		price: 0
+	}]
 };
 
 export const subscriptionSlice = createSlice({

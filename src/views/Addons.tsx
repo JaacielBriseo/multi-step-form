@@ -1,24 +1,25 @@
 import { Field, Form, Formik } from 'formik';
 import { setAddon } from '../store';
-import { useAppDispatch } from '../store/hookTypes';
+import { useAppDispatch, useAppSelector } from '../store/hookTypes';
 import { useNavigate } from 'react-router-dom';
 
 export const Addons = () => {
+	const { paymentType } = useAppSelector((state) => state.subscription);
 	const addonsOptions = [
 		{
 			addon: 'Online service',
 			msg: 'Access to multiplayer games',
-			extra: '+$1m/o',
+			price: paymentType === 'monthly' ? 1 : 10,
 		},
 		{
 			addon: 'Larger storage',
 			msg: 'Extra 1TB of cloud save',
-			extra: '+$2m/o',
+			price: paymentType === 'monthly' ? 2 : 20,
 		},
 		{
 			addon: 'Customizable profile',
 			msg: 'Custom theme on your profile',
-			extra: '+$2m/o',
+			price: paymentType === 'monthly' ? 2 : 20,
 		},
 	];
 	const dispatch = useAppDispatch();
@@ -26,15 +27,20 @@ export const Addons = () => {
 	return (
 		<Formik
 			initialValues={{
-				options: '',
+				addons: [
+					{
+						addon: null,
+						price: null
+					},
+				],
 			}}
 			onSubmit={(values) => {
-				console.log(values.options);
-				dispatch(setAddon(values.options));
-        navigate('/summary')
+				console.log(values);
+				dispatch(setAddon(values.addons))
+				navigate('/summary');
 			}}
 		>
-			{({ values }) => (
+			{({ values, setFieldValue}) => (
 				<Form className='text-MarineBlue w-11/12 mx-auto p-3 bg-White rounded-md flex flex-col shadow-lg'>
 					<div className='flex flex-col space-y-4 mb-4'>
 						<h1 className='text-2xl font-bold'>Pick add-ons</h1>
@@ -50,13 +56,22 @@ export const Addons = () => {
 									type='checkbox'
 									name='options'
 									value={option.addon}
-									checked={values.options.indexOf(option.addon) !== -1}
+									onChange={() => {
+										setFieldValue('addons', [
+											...values.addons,
+											{
+												addon: option.addon,
+												price: option.price,
+											},
+										]);
+									}}
+									checked={values.addons.find((add) => add.addon === option.addon) !== undefined}
 								/>
 								<div className='flex flex-col'>
 									{option.addon}
 									<small>{option.msg}</small>
 								</div>
-								<small className=''>{option.extra}</small>
+								<small className=''>{option.price}</small>
 							</label>
 						))}
 					</div>

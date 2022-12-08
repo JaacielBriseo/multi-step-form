@@ -9,9 +9,16 @@ export const Summary = () => {
 			</div>
 			<div className='mt-5 divide-y divide-gray-500'>
 				<h4>
-					{subscriptionPlan.plan}{subscriptionPlan.price} 
+					{subscriptionPlan.plan}({paymentType}){subscriptionPlan.price}
 				</h4>
-				{/* {addons} */}
+				<div className='divide-y flex flex-col'>
+					{Object.entries(addons).map(([key, value]) => (
+						<div key={key}>
+							{value.addon}
+							{value.price}
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	);
