@@ -5,9 +5,9 @@ const initialState: SubscriptionState = {
 	step: 1,
 	userInfo: null,
 	paymentType: 'monthly',
-	subscriptionPlan:{
-		plan:'',
-		price: ''
+	subscriptionPlan: {
+		plan: '',
+		price: 0,
 	},
 	addons: [],
 };
