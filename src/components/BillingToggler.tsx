@@ -10,6 +10,7 @@ export const BillingToggler = ({ enabled, setEnabled, setIsSelected }: TogglerPr
 	const dispatch = useAppDispatch();
 	useEffect(() => {
 		!enabled ? dispatch(setPaymentType('monthly')) : dispatch(setPaymentType('yearly'));
+		// eslint-disable-next-line
 	}, [enabled]);
 	return (
 		<div className='flex justify-center space-x-2 bg-Magnolia h-11 items-center rounded-md'>

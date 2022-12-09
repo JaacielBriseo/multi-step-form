@@ -1,12 +1,11 @@
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { setStep, setUserInfo, useAppDispatch } from '../store';
+import { setUserInfo, useAppDispatch } from '../store';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 export const UserInfoForm = () => {
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-
 
 	return (
 		<Formik
@@ -24,7 +23,6 @@ export const UserInfoForm = () => {
 			})}
 			onSubmit={(values) => {
 				dispatch(setUserInfo(values));
-				dispatch(setStep(2));
 				navigate('/select');
 			}}
 		>

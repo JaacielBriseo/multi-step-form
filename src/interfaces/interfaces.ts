@@ -1,16 +1,15 @@
 export interface SubscriptionState {
-	step: number;
 	userInfo: {
 		name: string;
 		email: string;
 		phone: string;
-	} | null;
-	paymentType: string | null;
-	subscriptionPlan: {
+	} ;
+	paymentType: string ;
+	subscriptionPlan:  {
 		plan: string;
 		price: number;
 	};
-	addons: Addon[]
+	addons: Addon[];
 }
 
 export interface Addon {

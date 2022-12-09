@@ -11,10 +11,11 @@ export const Navigation = () => {
 		<>
 			<BrowserRouter>
 				<div className='bg-mobSide bg-no-repeat bg-cover h-44 font-Ubuntu'>
-					<nav className=''>
+					<nav>
 						<ul className='flex justify-center items-center h-20 text-White font-semibold text-sm'>
 							<li>
 								<NavLink
+									// onClick={(e) => e.preventDefault()}
 									to='/'
 									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -24,6 +25,7 @@ export const Navigation = () => {
 							</li>
 							<li>
 								<NavLink
+									// onClick={(e) => e.preventDefault()}
 									to='/select'
 									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -33,6 +35,7 @@ export const Navigation = () => {
 							</li>
 							<li>
 								<NavLink
+									// onClick={(e) => e.preventDefault()}
 									to='/addons'
 									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -42,6 +45,7 @@ export const Navigation = () => {
 							</li>
 							<li>
 								<NavLink
+									// onClick={(e) => e.preventDefault()}
 									to='/summary'
 									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}

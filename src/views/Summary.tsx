@@ -8,9 +8,9 @@ export const Summary = () => {
 				<p className='text-CoolGray text-sm'>Double-check everything looks OK before confirming.</p>
 			</div>
 			<div className='mt-5 divide-y divide-gray-500'>
-				<h4>
-					{subscriptionPlan.plan}({paymentType}){subscriptionPlan.price}
-				</h4>
+				<div>
+					<h4>{subscriptionPlan!.plan}({paymentType}){subscriptionPlan!.price}</h4>
+				</div>
 				<div className='divide-y flex flex-col'>
 					{Object.entries(addons).map(([key, value]) => (
 						<div key={key}>
@@ -23,3 +23,4 @@ export const Summary = () => {
 		</div>
 	);
 };
+//TODO:Design & Thank You message

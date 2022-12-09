@@ -30,17 +30,16 @@ export const Addons = () => {
 				addons: [
 					{
 						addon: null,
-						price: null
+						price: null,
 					},
 				],
 			}}
 			onSubmit={(values) => {
-				console.log(values);
-				dispatch(setAddon(values.addons))
+				dispatch(setAddon(values.addons));
 				navigate('/summary');
 			}}
 		>
-			{({ values, setFieldValue}) => (
+			{({ values, setFieldValue }) => (
 				<Form className='text-MarineBlue w-11/12 mx-auto p-3 bg-White rounded-md flex flex-col shadow-lg'>
 					<div className='flex flex-col space-y-4 mb-4'>
 						<h1 className='text-2xl font-bold'>Pick add-ons</h1>

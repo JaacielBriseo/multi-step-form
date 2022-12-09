@@ -12,6 +12,7 @@ root.render(
 	<React.StrictMode>
 		<Provider store={store}>
 				<SubscriptionApp />
+
 		</Provider>
 	</React.StrictMode>
 );

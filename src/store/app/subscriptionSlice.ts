@@ -2,26 +2,29 @@ import { createSlice } from '@reduxjs/toolkit';
 import { SubscriptionState } from '../../interfaces';
 
 const initialState: SubscriptionState = {
-	step: 1,
-	userInfo: null,
+	userInfo: {
+		name: '',
+		email: '',
+		phone: '',
+	},
 	paymentType: 'monthly',
 	subscriptionPlan: {
 		plan: '',
 		price: 0,
 	},
-	addons: [{
-		addon: '',
-		price: 0
-	}]
+	addons: [
+		{
+			addon: '',
+			price: 0,
+		},
+	],
 };
 
 export const subscriptionSlice = createSlice({
 	name: 'subscription',
 	initialState,
 	reducers: {
-		setStep: (state, action: { payload: number }) => {
-			state.step = action.payload;
-		},
+		
 		setUserInfo: (state, action: { payload: SubscriptionState['userInfo'] }) => {
 			state.userInfo = action.payload;
 		},
@@ -37,6 +40,6 @@ export const subscriptionSlice = createSlice({
 	},
 });
 
-export const { setStep, setUserInfo, setPaymentType, setSubscriptionPlan, setAddon } = subscriptionSlice.actions;
+export const {  setUserInfo, setPaymentType, setSubscriptionPlan, setAddon } = subscriptionSlice.actions;
 
 export default subscriptionSlice.reducer;
