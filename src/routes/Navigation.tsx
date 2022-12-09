@@ -55,15 +55,16 @@ export const Navigation = () => {
 							</li>
 						</ul>
 					</nav>
+					<div className='bg-Magnolia min-h-screen'>
+						<Routes>
+							<Route path='/' element={<UserInfoForm />} />
+							<Route path='select' element={<SelectPlan />} />
+							<Route path='addons' element={<Addons />} />
+							<Route path='summary' element={<Summary />} />
 
-					<Routes>
-						<Route path='/' element={<UserInfoForm />} />
-						<Route path='select' element={<SelectPlan />} />
-						<Route path='addons' element={<Addons />} />
-						<Route path='summary' element={<Summary />} />
-
-						<Route path='/*' element={<Navigate to='/' replace />} />
-					</Routes>
+							<Route path='/*' element={<Navigate to='/' replace />} />
+						</Routes>
+					</div>
 				</div>
 			</BrowserRouter>
 		</>

@@ -1,29 +1,16 @@
 import { Field, Form, Formik } from 'formik';
 import { setAddon } from '../store';
-import { useAppDispatch, useAppSelector } from '../store/hookTypes';
+import { useAppDispatch } from '../store/hookTypes';
 import { useNavigate } from 'react-router-dom';
+import { useAddons } from '../hooks/useAddons';
+import { useState } from 'react';
 
 export const Addons = () => {
-	const { paymentType } = useAppSelector((state) => state.subscription);
-	const addonsOptions = [
-		{
-			addon: 'Online service',
-			msg: 'Access to multiplayer games',
-			price: paymentType === 'monthly' ? 1 : 10,
-		},
-		{
-			addon: 'Larger storage',
-			msg: 'Extra 1TB of cloud save',
-			price: paymentType === 'monthly' ? 2 : 20,
-		},
-		{
-			addon: 'Customizable profile',
-			msg: 'Custom theme on your profile',
-			price: paymentType === 'monthly' ? 2 : 20,
-		},
-	];
+	const { addonsOptions, paymentType } = useAddons();
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
+	const [selected, setSelected] = useState<number | null>(null);
+	let activeClass = 'border-MarineBlue bg-Magnolia';
 	return (
 		<Formik
 			initialValues={{
@@ -39,17 +26,20 @@ export const Addons = () => {
 				navigate('/summary');
 			}}
 		>
-			{({ values, setFieldValue }) => (
+			{({ values, setFieldValue, setFieldTouched, setFieldError }) => (
 				<Form className='text-MarineBlue w-11/12 mx-auto p-3 bg-White rounded-md flex flex-col shadow-lg'>
-					<div className='flex flex-col space-y-4 mb-4'>
+					<div className='flex flex-col space-y-4 mb-4 '>
 						<h1 className='text-2xl font-bold'>Pick add-ons</h1>
 						<p className='text-CoolGray'>Add-ons help enhance your gaming experience.</p>
 					</div>
-					<div className='flex flex-col items-center space-y-4'>
-						{addonsOptions.map((option) => (
+					<div className='flex flex-col space-y-4'>
+						{addonsOptions.map((option, index) => (
 							<label
+								onClick={() => setSelected(index)}
 								key={option.addon}
-								className='w-11/12 mx-auto border h-14 rounded-md flex justify-between items-center m-1'
+								className={`flex items-center justify-between border p-2 rounded-md ${
+									index === selected && activeClass
+								}`}
 							>
 								<Field
 									type='checkbox'
@@ -67,18 +57,20 @@ export const Addons = () => {
 									checked={values.addons.find((add) => add.addon === option.addon) !== undefined}
 								/>
 								<div className='flex flex-col'>
-									{option.addon}
-									<small>{option.msg}</small>
+									<p className='text-MarineBlue font-medium'>{option.addon}</p>
+									<small className='text-CoolGray mb-1'>{option.msg}</small>
 								</div>
-								<small className=''>{option.price}</small>
+								<small className='text-PastelBlue font-medium'>
+									+${paymentType === 'monthly' ? `${option.price.monthly}/mo` : `${option.price.yearly}/yr`}
+								</small>
 							</label>
 						))}
 					</div>
-					<button onClick={() => navigate(-1)} type='button' className='fixed bottom-1 left-1'>
+					<button onClick={() => navigate(-1)} type='button' className='absolute bottom-1 text-CoolGray font-medium'>
 						Go back
 					</button>
-					<button type='submit' className='fixed bottom-1 right-1'>
-						Submit
+					<button type='submit' className='absolute bottom-1 right-2 text-White bg-MarineBlue px-4 h-10 rounded-md'>
+						Next Step
 					</button>
 				</Form>
 			)}
