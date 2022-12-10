@@ -1,13 +1,7 @@
 import { Advanced, Arcade, Pro } from '../assets';
+import { PlanOption } from '../interfaces';
 
-interface PlanOption {
-	plan: string;
-	price: {
-		monthly: number;
-		yearly: number;
-	};
-	icon: string;
-}
+
 export const planOptions: PlanOption[] = [
 	{
 		plan: 'Arcade',

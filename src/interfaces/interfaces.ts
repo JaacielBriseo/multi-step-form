@@ -23,3 +23,11 @@ export interface HeaderProps {
 	title: string;
 	text: string;
 }
+export interface PlanOption {
+	plan: string;
+	price: {
+		monthly: number;
+		yearly: number;
+	};
+	icon: string;
+}

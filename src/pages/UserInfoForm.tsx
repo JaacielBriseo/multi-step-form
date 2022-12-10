@@ -1,33 +1,11 @@
-import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import { setUserInfo, useAppDispatch } from '../store';
 import { Formik, Form } from 'formik';
-import { UserInfo } from '../interfaces/interfaces';
+import { useUserInfo } from '../hooks';
 import { Header, MyInput, SubmitButton } from '../components';
 
 export const UserInfoForm = () => {
-	const dispatch = useAppDispatch();
-	const navigate = useNavigate();
-	const initValues: UserInfo = {
-		email: '',
-		name: '',
-		phone: '',
-	};
+	const { initValues, validationObject, nextStep } = useUserInfo();
 	return (
-		<Formik
-			initialValues={initValues}
-			validationSchema={Yup.object({
-				name: Yup.string().min(2, 'Must be a valid name').required('This field is required'),
-				email: Yup.string().email('Invalid email address').required('This field is required'),
-				phone: Yup.string()
-					.matches(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/, 'Invalid phone number')
-					.required('This field is required'),
-			})}
-			onSubmit={(values) => {
-				dispatch(setUserInfo(values));
-				navigate('/selectPlan');
-			}}
-		>
+		<Formik initialValues={initValues} validationSchema={validationObject} onSubmit={(values) => nextStep(values)}>
 			{({ errors }) => (
 				<Form className='formLayout'>
 					<Header text='Please provide your name, email address, and phone number.' title='Personal info' />

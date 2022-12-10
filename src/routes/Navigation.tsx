@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Navigate, NavLink, Routes } from 'react-router-dom';
-import { ThankYouCard } from '../components';
-import { Addons, SelectPlan, Summary, UserInfoForm } from '../pages';
+import { Addons, SelectPlan, Summary, UserInfoForm, ThankYouCard } from '../pages';
 
 export const Navigation = () => {
 	let activeStyle = {
