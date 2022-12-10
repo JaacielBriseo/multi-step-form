@@ -1,8 +1,7 @@
 import { Advanced, Arcade, Pro } from '../assets';
-import { PlanOption } from '../interfaces';
+import { PlanOptionValues } from '../interfaces';
 
-
-export const planOptions: PlanOption[] = [
+export const planOptions: PlanOptionValues[] = [
 	{
 		plan: 'Arcade',
 		price: {
