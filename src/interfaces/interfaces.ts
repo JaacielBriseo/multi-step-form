@@ -3,9 +3,9 @@ export interface SubscriptionState {
 		name: string;
 		email: string;
 		phone: string;
-	} ;
-	paymentType: string ;
-	subscriptionPlan:  {
+	};
+	paymentType: string;
+	subscriptionPlan: {
 		plan: string;
 		price: number;
 	};
@@ -13,6 +13,6 @@ export interface SubscriptionState {
 }
 
 export interface Addon {
-	addon: string | null;
-	price: number | null;
+	addon: string;
+	price: number;
 }

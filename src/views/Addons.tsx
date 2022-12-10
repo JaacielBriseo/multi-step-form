@@ -3,42 +3,35 @@ import { setAddon } from '../store';
 import { useAppDispatch } from '../store/hookTypes';
 import { useNavigate } from 'react-router-dom';
 import { useAddons } from '../hooks/useAddons';
-import { useState } from 'react';
+import { Addon } from '../interfaces';
 
 export const Addons = () => {
 	const { addonsOptions, paymentType } = useAddons();
 	const dispatch = useAppDispatch();
 	const navigate = useNavigate();
-	const [selected, setSelected] = useState<number | null>(null);
 	let activeClass = 'border-MarineBlue bg-Magnolia';
 	return (
 		<Formik
 			initialValues={{
-				addons: [
-					{
-						addon: null,
-						price: null,
-					},
-				],
+				addons: [],
 			}}
 			onSubmit={(values) => {
 				dispatch(setAddon(values.addons));
 				navigate('/summary');
 			}}
 		>
-			{({ values, setFieldValue, setFieldTouched, setFieldError }) => (
-				<Form className='text-MarineBlue w-11/12 mx-auto p-3 bg-White rounded-md flex flex-col shadow-lg'>
+			{({ values, setFieldValue }) => (
+				<Form className='text-MarineBlue w-11/12 mx-auto p-3 bg-White rounded-md flex flex-col shadow-lg '>
 					<div className='flex flex-col space-y-4 mb-4 '>
 						<h1 className='text-2xl font-bold'>Pick add-ons</h1>
 						<p className='text-CoolGray'>Add-ons help enhance your gaming experience.</p>
 					</div>
-					<div className='flex flex-col space-y-4'>
-						{addonsOptions.map((option, index) => (
+					<div className='flex flex-col space-y-4 '>
+						{addonsOptions.map((option) => (
 							<label
-								onClick={() => setSelected(index)}
 								key={option.addon}
 								className={`flex items-center justify-between border p-2 rounded-md ${
-									index === selected && activeClass
+									values.addons.find((add: Addon) => add.addon === option.addon) !== undefined ? activeClass : ''
 								}`}
 							>
 								<Field
@@ -46,15 +39,24 @@ export const Addons = () => {
 									name='options'
 									value={option.addon}
 									onChange={() => {
-										setFieldValue('addons', [
-											...values.addons,
-											{
-												addon: option.addon,
-												price: option.price,
-											},
-										]);
+										if (values.addons.find((add: Addon) => add.addon === option.addon) !== undefined) {
+											// If the option is already in the addons array, remove it.
+											setFieldValue(
+												'addons',
+												values.addons.filter((add: Addon) => add.addon !== option.addon)
+											);
+										} else {
+											// Otherwise, add it to the addons array.
+											setFieldValue('addons', [
+												...values.addons,
+												{
+													addon: option.addon,
+													price: paymentType === 'monthly' ? option.price.monthly : option.price.yearly,
+												},
+											]);
+										}
 									}}
-									checked={values.addons.find((add) => add.addon === option.addon) !== undefined}
+									checked={values.addons.find((add: Addon) => add.addon === option.addon) !== undefined}
 								/>
 								<div className='flex flex-col'>
 									<p className='text-MarineBlue font-medium'>{option.addon}</p>

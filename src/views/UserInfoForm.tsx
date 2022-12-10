@@ -23,7 +23,7 @@ export const UserInfoForm = () => {
 			})}
 			onSubmit={(values) => {
 				dispatch(setUserInfo(values));
-				navigate('/select');
+				navigate('/selectPlan');
 			}}
 		>
 			{({ errors }) => (

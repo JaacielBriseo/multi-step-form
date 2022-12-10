@@ -26,7 +26,7 @@ export const Navigation = () => {
 							<li>
 								<NavLink
 									// onClick={(e) => e.preventDefault()}
-									to='/select'
+									to='/selectPlan'
 									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
 								>
@@ -58,7 +58,7 @@ export const Navigation = () => {
 					<div className='bg-Magnolia min-h-screen'>
 						<Routes>
 							<Route path='/' element={<UserInfoForm />} />
-							<Route path='select' element={<SelectPlan />} />
+							<Route path='selectPlan' element={<SelectPlan />} />
 							<Route path='addons' element={<Addons />} />
 							<Route path='summary' element={<Summary />} />
 
