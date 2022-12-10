@@ -1,9 +1,9 @@
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { setUserInfo, useAppDispatch } from '../store';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import { UserInfo } from '../interfaces/interfaces';
-import { MyInput } from '../components/MyInput';
+import { Header, MyInput } from '../components';
 
 export const UserInfoForm = () => {
 	const dispatch = useAppDispatch();
@@ -30,9 +30,7 @@ export const UserInfoForm = () => {
 		>
 			{({ errors }) => (
 				<Form className='formLayout'>
-					<h1 className='text-xl font-bold'>Personal Info</h1>
-					<p className='text-CoolGray'>Please provide your name, email address, and phone number.</p>
-
+					<Header text='Please provide your name, email address, and phone number.' title='Personal info' />
 					<MyInput label='Name' name='name' placeholder='	e.g. Stephen King' errors={errors.name} />
 					<MyInput label='Email' name='email' placeholder='	e.g. stephenking@lorem.com' errors={errors.email} />
 					<MyInput label='Phone Number' name='phone' placeholder='	e.g. +1 234 567 890' errors={errors.phone} />

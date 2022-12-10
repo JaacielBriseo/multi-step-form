@@ -4,6 +4,7 @@ import { useAppDispatch } from '../store/hookTypes';
 import { useNavigate } from 'react-router-dom';
 import { useAddons } from '../hooks/useAddons';
 import { Addon } from '../interfaces';
+import { Header } from '../components';
 
 export const Addons = () => {
 	const { addonsOptions, paymentType } = useAddons();
@@ -22,10 +23,7 @@ export const Addons = () => {
 		>
 			{({ values, setFieldValue }) => (
 				<Form className='formLayout'>
-					<div className='flex flex-col space-y-4 mb-4 '>
-						<h1 className='text-2xl font-bold'>Pick add-ons</h1>
-						<p className='text-CoolGray'>Add-ons help enhance your gaming experience.</p>
-					</div>
+					<Header text='Add-ons help enhance your gaming experience.' title='Pick add-ons' />
 					<div className='flex flex-col space-y-4 '>
 						{addonsOptions.map((option) => (
 							<label

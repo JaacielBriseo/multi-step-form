@@ -1,4 +1,5 @@
 import { Formik, Form, Field } from 'formik';
+import { Header } from '../components';
 import { useSelectPlan } from '../hooks/useSelectPlan';
 import { setPaymentType, setSubscriptionPlan } from '../store';
 
@@ -6,10 +7,7 @@ export const SelectPlan = () => {
 	const { dispatch, navigate, selected, setSelected, activeClass, initialValues, planOptions } = useSelectPlan();
 	return (
 		<section className='formLayout'>
-			<div className='space-y-2 mb-4'>
-				<h1 className='text-2xl font-bold'>Select your plan</h1>
-				<p className='text-CoolGray text-sm'>You have the option of monthly or yearly billing.</p>
-			</div>
+			<Header text='You have the option of monthly or yearly billing.' title='Select your plan' />
 			<Formik
 				initialValues={initialValues}
 				onSubmit={(values) => {

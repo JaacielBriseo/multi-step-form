@@ -18,3 +18,8 @@ export interface UserInfo {
 	email: string;
 	phone: string;
 }
+
+export interface HeaderProps {
+	title: string;
+	text: string;
+}
