@@ -5,7 +5,7 @@ import { setPaymentType, setSubscriptionPlan } from '../store';
 export const SelectPlan = () => {
 	const { dispatch, navigate, selected, setSelected, activeClass, initialValues, planOptions } = useSelectPlan();
 	return (
-		<div className='formLayout'>
+		<section className='formLayout'>
 			<div className='space-y-2 mb-4'>
 				<h1 className='text-2xl font-bold'>Select your plan</h1>
 				<p className='text-CoolGray text-sm'>You have the option of monthly or yearly billing.</p>
@@ -76,6 +76,6 @@ export const SelectPlan = () => {
 					</Form>
 				)}
 			</Formik>
-		</div>
+		</section>
 	);
 };

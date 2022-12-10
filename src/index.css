@@ -2,9 +2,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html {
+	background-color: hsl(217, 100%, 97%);
+}
 .formLayout {
-	@apply w-11/12 mx-auto p-5 rounded-lg  shadow-lg text-MarineBlue bg-white;
+	@apply w-11/12 mx-auto p-5 rounded-lg shadow-lg text-MarineBlue bg-white;
+}
+.nav {
+	@apply border border-LightGray rounded-full px-2 pb-1 pt-1 m-1;
 }
 
 .toggle-switch {

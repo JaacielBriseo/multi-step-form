@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Navigate, NavLink, Routes } from 'react-router-dom';
-import { Addons, SelectPlan, Summary, UserInfoForm } from '../views';
+import { ThankYouCard } from '../components';
+import { Addons, SelectPlan, Summary, UserInfoForm } from '../pages';
 
 export const Navigation = () => {
 	let activeStyle = {
@@ -12,12 +13,12 @@ export const Navigation = () => {
 			<BrowserRouter>
 				<div className='bg-mobSide bg-no-repeat bg-cover h-40 font-Ubuntu'>
 					<nav>
-						<ul className='flex justify-center items-center h-20 text-White font-semibold text-sm'>
+						<ul className='flex justify-center items-center h-20 text-White font-semibold text-sm '>
 							<li>
 								<NavLink
 									// onClick={(e) => e.preventDefault()}
 									to='/'
-									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
+									className='nav'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
 								>
 									1
@@ -27,7 +28,7 @@ export const Navigation = () => {
 								<NavLink
 									// onClick={(e) => e.preventDefault()}
 									to='/selectPlan'
-									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
+									className='nav'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
 								>
 									2
@@ -37,7 +38,7 @@ export const Navigation = () => {
 								<NavLink
 									// onClick={(e) => e.preventDefault()}
 									to='/addons'
-									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
+									className='nav'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
 								>
 									3
@@ -47,7 +48,7 @@ export const Navigation = () => {
 								<NavLink
 									// onClick={(e) => e.preventDefault()}
 									to='/summary'
-									className='box-border border-LightGray rounded-full px-2 pb-1 m-1 border'
+									className='nav'
 									style={({ isActive }) => (isActive ? activeStyle : undefined)}
 								>
 									4
@@ -55,14 +56,16 @@ export const Navigation = () => {
 							</li>
 						</ul>
 					</nav>
-					<Routes>
-						<Route path='/' element={<UserInfoForm />} />
-						<Route path='selectPlan' element={<SelectPlan />} />
-						<Route path='addons' element={<Addons />} />
-						<Route path='summary' element={<Summary />} />
-
-						<Route path='/*' element={<Navigate to='/' replace />} />
-					</Routes>
+					<div className=''>
+						<Routes>
+							<Route path='/' element={<UserInfoForm />} />
+							<Route path='selectPlan' element={<SelectPlan />} />
+							<Route path='addons' element={<Addons />} />
+							<Route path='summary' element={<Summary />} />
+							<Route path='thanks' element={<ThankYouCard />} />
+							<Route path='/*' element={<Navigate to='/' replace />} />
+						</Routes>
+					</div>
 				</div>
 			</BrowserRouter>
 		</>
