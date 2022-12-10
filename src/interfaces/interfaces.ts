@@ -1,9 +1,5 @@
 export interface SubscriptionState {
-	userInfo: {
-		name: string;
-		email: string;
-		phone: string;
-	};
+	userInfo: UserInfo;
 	paymentType: string;
 	subscriptionPlan: {
 		plan: string;
@@ -15,4 +11,10 @@ export interface SubscriptionState {
 export interface Addon {
 	addon: string;
 	price: number;
+}
+
+export interface UserInfo {
+	name: string;
+	email: string;
+	phone: string;
 }
