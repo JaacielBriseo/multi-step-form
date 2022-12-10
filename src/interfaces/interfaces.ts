@@ -66,3 +66,30 @@ export interface SwitchTogglerProps {
 	setSelected: React.Dispatch<React.SetStateAction<number | null>>;
 	values: SelectPlanValues;
 }
+export type HandleChangeAddons = (
+	values: {
+		addons: never[];
+	},
+	option: {
+		addon: string;
+		msg: string;
+		price: {
+			monthly: number;
+			yearly: number;
+		};
+	},
+	setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void
+) => void;
+
+export interface AddonOptionProps {
+	option: {
+		addon: string;
+		msg: string;
+		price: {
+			monthly: number;
+			yearly: number;
+		};
+	};
+	values: { addons: never[] };
+	setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void;
+}
