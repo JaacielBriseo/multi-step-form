@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.formLayout {
+	@apply w-11/12 mx-auto p-5 rounded-lg  shadow-lg text-MarineBlue bg-white;
+}
+
 .toggle-switch {
 	display: inline-block;
 	width: 35px;

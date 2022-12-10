@@ -6,7 +6,7 @@ export const Summary = () => {
 		return accumulator + currentValue.price;
 	}, 0);
 	return (
-		<div className='text-MarineBlue w-11/12 mx-auto bg-White rounded-md mt-4 shadow-lg p-3 flex flex-col'>
+		<div className='formLayout'>
 			<div className='w-[85%]'>
 				<h1 className='text-2xl font-semibold'>Finishing up</h1>
 				<p className='text-CoolGray text-sm'>Double-check everything looks OK before confirming.</p>

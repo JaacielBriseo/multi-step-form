@@ -27,7 +27,7 @@ export const UserInfoForm = () => {
 			}}
 		>
 			{({ errors }) => (
-				<Form className='bg-White w-11/12 mx-auto rounded-lg p-5 shadow-lg text-MarineBlue'>
+				<Form className='formLayout'>
 					<h1 className='text-xl font-bold'>Personal Info</h1>
 					<p className='text-CoolGray'>Please provide your name, email address, and phone number.</p>
 					<div className='flex flex-col m-1'>

@@ -10,7 +10,7 @@ export const Navigation = () => {
 	return (
 		<>
 			<BrowserRouter>
-				<div className='bg-mobSide bg-no-repeat bg-cover h-44 font-Ubuntu'>
+				<div className='bg-mobSide bg-no-repeat bg-cover h-40 font-Ubuntu'>
 					<nav>
 						<ul className='flex justify-center items-center h-20 text-White font-semibold text-sm'>
 							<li>
@@ -55,16 +55,14 @@ export const Navigation = () => {
 							</li>
 						</ul>
 					</nav>
-					<div className='bg-Magnolia min-h-screen'>
-						<Routes>
-							<Route path='/' element={<UserInfoForm />} />
-							<Route path='selectPlan' element={<SelectPlan />} />
-							<Route path='addons' element={<Addons />} />
-							<Route path='summary' element={<Summary />} />
+					<Routes>
+						<Route path='/' element={<UserInfoForm />} />
+						<Route path='selectPlan' element={<SelectPlan />} />
+						<Route path='addons' element={<Addons />} />
+						<Route path='summary' element={<Summary />} />
 
-							<Route path='/*' element={<Navigate to='/' replace />} />
-						</Routes>
-					</div>
+						<Route path='/*' element={<Navigate to='/' replace />} />
+					</Routes>
 				</div>
 			</BrowserRouter>
 		</>

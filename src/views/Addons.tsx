@@ -21,7 +21,7 @@ export const Addons = () => {
 			}}
 		>
 			{({ values, setFieldValue }) => (
-				<Form className='text-MarineBlue w-11/12 mx-auto p-3 bg-White rounded-md flex flex-col shadow-lg '>
+				<Form className='formLayout'>
 					<div className='flex flex-col space-y-4 mb-4 '>
 						<h1 className='text-2xl font-bold'>Pick add-ons</h1>
 						<p className='text-CoolGray'>Add-ons help enhance your gaming experience.</p>
