@@ -1,5 +1,6 @@
 import { Formik, Form } from 'formik';
 import { useUserInfo } from '../hooks';
+import { headersData } from '../constants';
 import { Header, MyInput, SubmitButton } from '../components';
 
 export const UserInfoForm = () => {
@@ -8,7 +9,7 @@ export const UserInfoForm = () => {
 		<Formik initialValues={initValues} validationSchema={validationObject} onSubmit={(values) => nextStep(values)}>
 			{({ errors }) => (
 				<Form className='formLayout'>
-					<Header text='Please provide your name, email address, and phone number.' title='Personal info' />
+					<Header text={headersData.userInfoForm.text} title={headersData.userInfoForm.title} />
 					<MyInput label='Name' name='name' placeholder='	e.g. Stephen King' errors={errors.name} />
 					<MyInput label='Email' name='email' placeholder='	e.g. stephenking@lorem.com' errors={errors.email} />
 					<MyInput label='Phone Number' name='phone' placeholder='	e.g. +1 234 567 890' errors={errors.phone} />

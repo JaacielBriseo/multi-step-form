@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { Header, SubmitButton } from '../components';
+import { headersData } from '../constants';
 import { useAppSelector } from '../store/hookTypes';
 export const Summary = () => {
 	const { paymentType, addons, subscriptionPlan } = useAppSelector((state) => state.subscription);
@@ -9,7 +10,7 @@ export const Summary = () => {
 	}, 0);
 	return (
 		<section className='formLayout'>
-			<Header text='Double-check everything looks OK before confirming.' title='Finishing up' />
+			<Header text={headersData.summary.text} title={headersData.summary.title} />
 			<div className='mt-5 divide-y divide-gray-500 bg-Magnolia p-3 rounded-md space-y-4'>
 				<div className='flex justify-between items-center'>
 					<div>

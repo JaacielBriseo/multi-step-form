@@ -1,10 +1,10 @@
 import { Field, Form, Formik } from 'formik';
-import { setAddon } from '../store';
-import { useAppDispatch } from '../store/hookTypes';
+import { setAddon, useAppDispatch } from '../store';
 import { useNavigate } from 'react-router-dom';
-import { useAddons } from '../hooks/useAddons';
+import { useAddons } from '../hooks';
 import { Addon } from '../interfaces';
 import { Header, SubmitButton } from '../components';
+import { headersData } from '../constants';
 
 export const Addons = () => {
 	const { addonsOptions, paymentType } = useAddons();
@@ -23,7 +23,7 @@ export const Addons = () => {
 		>
 			{({ values, setFieldValue }) => (
 				<Form className='formLayout'>
-					<Header text='Add-ons help enhance your gaming experience.' title='Pick add-ons' />
+					<Header text={headersData.addons.text} title={headersData.addons.title} />
 					<div className='flex flex-col space-y-4 '>
 						{addonsOptions.map((option) => (
 							<label

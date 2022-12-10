@@ -1,12 +1,13 @@
 import { useSelectPlan } from '../hooks';
 import { Formik, Form } from 'formik';
 import { Header, SubmitButton, PlanOption, SwitchToggler } from '../components';
+import { headersData } from '../constants';
 
 export const SelectPlan = () => {
 	const { nextStep, planOptions, initialValues, setSelected, selected, setSelectedOption } = useSelectPlan();
 	return (
 		<section className='formLayout'>
-			<Header text='You have the option of monthly or yearly billing.' title='Select your plan' />
+			<Header text={headersData.selectPlan.text} title={headersData.selectPlan.title} />
 			<Formik initialValues={initialValues} onSubmit={(values) => nextStep(values)}>
 				{({ values, setFieldValue }) => (
 					<Form>
