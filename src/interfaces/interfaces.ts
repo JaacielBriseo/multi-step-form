@@ -93,3 +93,20 @@ export interface AddonOptionProps {
 	values: { addons: never[] };
 	setFieldValue: (field: string, value: any, shouldValidate?: boolean | undefined) => void;
 }
+
+export interface SelectedAddonsProps {
+	addon: string;
+	paymentType: string;
+	price: number;
+}
+export interface SelectedPlanProps {
+	plan: string;
+	paymentType: string;
+	price: number;
+}
+
+export interface TotalPriceProps {
+	paymentType: string;
+	totalAddonsPrices: number;
+	price: number;
+}

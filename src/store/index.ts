@@ -1,3 +1,3 @@
-export * from './store'
-export * from './hookTypes'
-export * from './app'
+export * from './store';
+export * from './hookTypes';
+export * from './app';

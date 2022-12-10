@@ -4,8 +4,8 @@ import { subscriptionSlice } from './app';
 
 export const store = configureStore({
 	reducer: {
-        subscription: subscriptionSlice.reducer
-    },
+		subscription: subscriptionSlice.reducer,
+	},
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

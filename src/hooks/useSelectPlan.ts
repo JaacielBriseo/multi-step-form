@@ -1,8 +1,9 @@
-import { planOptions } from '../constants/planOptions';
+import { useState } from 'react';
+import { planOptions } from '../constants';
+import { useNavigate } from 'react-router-dom';
 import { SelectPlanValues, SetSelectedOption } from '../interfaces';
 import { setPaymentType, setSubscriptionPlan, useAppDispatch } from '../store';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+
 export const useSelectPlan = () => {
 	const [selected, setSelected] = useState<number | null>(null);
 	const dispatch = useAppDispatch();

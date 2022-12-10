@@ -1,4 +1,4 @@
-import { ThankYou } from '../assets/index';
+import { ThankYou } from '../assets';
 export const ThankYouCard = () => {
 	return (
 		<div className='formLayout h-96 flex items-center'>

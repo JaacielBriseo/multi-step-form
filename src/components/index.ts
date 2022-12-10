@@ -2,5 +2,8 @@ export * from './AddonOption';
 export * from './Header';
 export * from './MyInput';
 export * from './PlanOption';
+export * from './SelectedAddons';
+export * from './SelectedPlan';
 export * from './SubmitButton';
 export * from './SwitchToggler';
+export * from './TotalPrice';

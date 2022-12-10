@@ -1,9 +1,7 @@
-import { addonsOptions } from '../constants/addonsOptions';
-import { Addon } from '../interfaces';
 import { setAddon, useAppDispatch, useAppSelector } from '../store';
-import { HandleChangeAddons } from '../interfaces/interfaces';
+import { HandleChangeAddons, Addon } from '../interfaces';
+import { headersData, addonsOptions } from '../constants';
 import { useNavigate } from 'react-router-dom';
-import { headersData } from '../constants/headersData';
 
 export const useAddons = () => {
 	const dispatch = useAppDispatch();

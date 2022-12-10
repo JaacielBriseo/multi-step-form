@@ -1,7 +1,7 @@
 import { useSelectPlan } from '../hooks';
 import { Formik, Form } from 'formik';
-import { Header, SubmitButton, PlanOption, SwitchToggler } from '../components';
 import { headersData } from '../constants';
+import { Header, SubmitButton, PlanOption, SwitchToggler } from '../components';
 
 export const SelectPlan = () => {
 	const { nextStep, planOptions, initialValues, setSelected, selected, setSelectedOption } = useSelectPlan();

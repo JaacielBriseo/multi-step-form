@@ -15,7 +15,7 @@ export const useUserInfo = () => {
 			.matches(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/, 'Invalid phone number')
 			.required('This field is required'),
 	});
-	
+
 	const initValues: UserInfo = {
 		email: '',
 		name: '',

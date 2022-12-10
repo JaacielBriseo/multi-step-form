@@ -24,7 +24,6 @@ export const subscriptionSlice = createSlice({
 	name: 'subscription',
 	initialState,
 	reducers: {
-		
 		setUserInfo: (state, action: { payload: SubscriptionState['userInfo'] }) => {
 			state.userInfo = action.payload;
 		},
@@ -40,6 +39,6 @@ export const subscriptionSlice = createSlice({
 	},
 });
 
-export const {  setUserInfo, setPaymentType, setSubscriptionPlan, setAddon } = subscriptionSlice.actions;
+export const { setUserInfo, setPaymentType, setSubscriptionPlan, setAddon } = subscriptionSlice.actions;
 
 export default subscriptionSlice.reducer;
