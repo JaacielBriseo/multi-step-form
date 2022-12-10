@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { setUserInfo, useAppDispatch } from '../store';
 import { Formik, Form } from 'formik';
 import { UserInfo } from '../interfaces/interfaces';
-import { Header, MyInput } from '../components';
+import { Header, MyInput, SubmitButton } from '../components';
 
 export const UserInfoForm = () => {
 	const dispatch = useAppDispatch();
@@ -34,11 +34,7 @@ export const UserInfoForm = () => {
 					<MyInput label='Name' name='name' placeholder='	e.g. Stephen King' errors={errors.name} />
 					<MyInput label='Email' name='email' placeholder='	e.g. stephenking@lorem.com' errors={errors.email} />
 					<MyInput label='Phone Number' name='phone' placeholder='	e.g. +1 234 567 890' errors={errors.phone} />
-					<div className='flex justify-end mt-20'>
-						<button type='submit' className='w-24 h-9 p-1 bg-MarineBlue text-White rounded-md '>
-							Next Step
-						</button>
-					</div>
+					<SubmitButton text='Next Step' />
 				</Form>
 			)}
 		</Formik>

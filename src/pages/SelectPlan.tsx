@@ -1,5 +1,5 @@
 import { Formik, Form, Field } from 'formik';
-import { Header } from '../components';
+import { Header, SubmitButton } from '../components';
 import { useSelectPlan } from '../hooks/useSelectPlan';
 import { setPaymentType, setSubscriptionPlan } from '../store';
 
@@ -60,17 +60,8 @@ export const SelectPlan = () => {
 								</span>
 								<p className={`${!values.toggler ? 'text-CoolGray' : ''}`}>Yearly</p>
 							</label>
+							<SubmitButton text='Next Step' />
 						</div>
-						<button onClick={() => navigate(-1)} type='button' className='fixed bottom-1 left-1'>
-							Go back
-						</button>
-						<button
-							type='submit'
-							disabled={selected === null}
-							className='fixed bottom-1 right-1 bg-MarineBlue text-White h-10 px-3 rounded-md'
-						>
-							Next Step
-						</button>
 					</Form>
 				)}
 			</Formik>

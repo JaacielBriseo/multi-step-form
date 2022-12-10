@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { Header } from '../components';
+import { Header, SubmitButton } from '../components';
 import { useAppSelector } from '../store/hookTypes';
 export const Summary = () => {
 	const { paymentType, addons, subscriptionPlan } = useAppSelector((state) => state.subscription);
@@ -44,13 +44,7 @@ export const Summary = () => {
 					{paymentType === 'monthly' ? '/mo' : '/yr'}
 				</p>
 			</div>
-
-			<div className='flex justify-end mt-10'>
-				<NavLink to={'/thanks'} className=''>
-					Confirm
-				</NavLink>
-			</div>
+			<SubmitButton text='Confirm' />
 		</section>
 	);
 };
-//TODO:Design & Thank You message

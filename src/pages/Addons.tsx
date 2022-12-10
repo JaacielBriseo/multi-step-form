@@ -4,7 +4,7 @@ import { useAppDispatch } from '../store/hookTypes';
 import { useNavigate } from 'react-router-dom';
 import { useAddons } from '../hooks/useAddons';
 import { Addon } from '../interfaces';
-import { Header } from '../components';
+import { Header, SubmitButton } from '../components';
 
 export const Addons = () => {
 	const { addonsOptions, paymentType } = useAddons();
@@ -66,12 +66,7 @@ export const Addons = () => {
 							</label>
 						))}
 					</div>
-					<button onClick={() => navigate(-1)} type='button' className='absolute bottom-1 text-CoolGray font-medium'>
-						Go back
-					</button>
-					<button type='submit' className='absolute bottom-1 right-2 text-White bg-MarineBlue px-4 h-10 rounded-md'>
-						Next Step
-					</button>
+					<SubmitButton text='Next Step' />
 				</Form>
 			)}
 		</Formik>
