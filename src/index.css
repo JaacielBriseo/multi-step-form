@@ -5,11 +5,19 @@
 html {
 	background-color: hsl(217, 100%, 97%);
 }
-.formLayout {
-	@apply w-11/12 mx-auto p-5 rounded-lg shadow-lg text-MarineBlue bg-white;
+
+@media (min-width: 768px) {
+	html {
+		background-color: hsl(0, 0%, 100%);
+	}
 }
-.nav {
-	@apply border border-LightGray rounded-full px-2 pb-1 pt-1 m-1;
+.formLayout {
+	@apply w-11/12 mx-auto p-5 rounded-lg shadow-lg text-MarineBlue bg-white
+	md:shadow-none md:mt-16;
+}
+.navItem {
+	@apply border border-LightGray rounded-full px-2 pb-1 pt-1 m-1 text-center
+	 md:h-8 md:w-8;
 }
 
 .toggle-switch {
@@ -26,4 +34,8 @@ html {
 	border-radius: 30px;
 	transition: 0.3s;
 	position: relative;
+}
+.navigationUl {
+	@apply flex justify-center items-center h-20 text-White font-semibold text-sm
+	md:flex-col md:space-y-5 md:justify-end md:items-start;
 }

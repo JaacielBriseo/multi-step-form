@@ -20,7 +20,7 @@ export const Addons = () => {
 							<AddonOption option={option} setFieldValue={setFieldValue} values={values} key={option.addon} />
 						))}
 					</div>
-					<SubmitButton text='Next Step' />
+					<SubmitButton text='Next Step' customClass='md:mr-20'/>
 				</Form>
 			)}
 		</Formik>

@@ -110,3 +110,9 @@ export interface TotalPriceProps {
 	totalAddonsPrices: number;
 	price: number;
 }
+export interface NavElementsProps {
+	stepText: string;
+	stepNumber: string;
+	stepTitle: string;
+	path: string;
+}

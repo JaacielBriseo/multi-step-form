@@ -1,6 +1,7 @@
 export * from './AddonOption';
 export * from './Header';
 export * from './MyInput';
+export * from './NavElements';
 export * from './PlanOption';
 export * from './SelectedAddons';
 export * from './SelectedPlan';

@@ -6,7 +6,7 @@ export const PlanOption = ({ index, option, values, setFieldValue, selected ,set
 
 	return (
 		<button
-			className={`border flex items-center space-x-3 p-3 rounded-md ${selected === index && activeClass}`}
+			className={`border flex items-center space-x-3 p-3 rounded-md md:flex-col md:justify-center md:px-7 ${selected === index && activeClass}`}
 			type='button'
 			key={option.plan}
 			onClick={() => {

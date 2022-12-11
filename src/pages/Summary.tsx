@@ -3,9 +3,9 @@ import { Header, SelectedAddons, SubmitButton, SelectedPlan, TotalPrice } from '
 export const Summary = () => {
 	const { plan, paymentType, totalAddonsPrices, price, addons, headersData } = useSummary();
 	return (
-		<section className='formLayout'>
+		<section className='formLayout md:text-xl'>
 			<Header text={headersData.summary.text} title={headersData.summary.title} />
-			<div className='mt-5 divide-y divide-gray-500 bg-Magnolia p-3 rounded-md space-y-4'>
+			<div className='mt-5 divide-y divide-gray-500 bg-Magnolia p-3 rounded-md space-y-4 md:w-7/12'>
 				<SelectedPlan paymentType={paymentType} plan={plan} price={price} />
 				<div>
 					{addons.map(({ addon, price }) => (
@@ -14,7 +14,7 @@ export const Summary = () => {
 				</div>
 			</div>
 			<TotalPrice paymentType={paymentType} price={price} totalAddonsPrices={totalAddonsPrices} />
-			<SubmitButton text='Confirm' />
+			<SubmitButton text='Confirm' customClass='md:bg-PurplishBlue md:mr-20'/>
 		</section>
 	);
 };

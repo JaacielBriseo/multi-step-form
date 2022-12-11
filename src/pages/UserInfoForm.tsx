@@ -8,7 +8,7 @@ export const UserInfoForm = () => {
 	return (
 		<Formik initialValues={initValues} validationSchema={validationObject} onSubmit={(values) => nextStep(values)}>
 			{({ errors }) => (
-				<Form className='formLayout'>
+				<Form className='formLayout md:space-y-8'>
 					<Header text={headersData.userInfoForm.text} title={headersData.userInfoForm.title} />
 					<MyInput label='Name' name='name' placeholder='	e.g. Stephen King' errors={errors.name} />
 					<MyInput label='Email' name='email' placeholder='	e.g. stephenking@lorem.com' errors={errors.email} />
