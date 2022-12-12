@@ -10,7 +10,7 @@ export const NavElements = ({ stepNumber, stepText, stepTitle, path }: NavElemen
 	return (
 		<li className='md:flex'>
 			<NavLink
-				// onClick={(e) => e.preventDefault()}
+				onClick={(e) => e.preventDefault()}
 				to={path}
 				className='navItem'
 				style={({ isActive }) => (isActive ? activeStyle : undefined)}

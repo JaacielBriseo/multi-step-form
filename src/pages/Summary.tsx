@@ -21,4 +21,3 @@ export const Summary = () => {
 		</form>
 	);
 };
-//TODO: DESKTOP DESIGN
