@@ -26,7 +26,7 @@ export const SelectPlan = () => {
 								))}
 							</div>
 							<SwitchToggler setSelected={setSelected} values={values} />
-							<SubmitButton text='Next Step' customClass='md:mr-44 md:mt-10' />
+							<SubmitButton text='Next Step' customClass='lg:mr-44 lg:mt-10' />
 						</div>
 					</Form>
 				)}
